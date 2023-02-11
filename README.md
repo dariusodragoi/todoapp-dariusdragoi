@@ -4,10 +4,10 @@ This repository contains the necessary files to deploy a todo app using Ansible.
 
 ## Prerequisites
 
-- Ansible installed on the local machine
+- Ansible installed on my local machine
 - Access to an Ubuntu virtual machine in Azure
 - An ssh key pair for accessing the virtual machine
-- A copy of the Todo app code on your local machine
+- A copy of the todo app code on your local machine
 
 ## Contents
 
