@@ -1,0 +1,42 @@
+- name: Deploy todo app
+  hosts: todo_app_servers
+  become: yes
+  
+  tasks:
+  - name: Install software-properties-common
+    apt:
+      name: software-properties-common
+      state: latest
+      
+  - name: Add Docker repository key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+    
+  - name: Add Docker repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+      state: present
+  
+  - name: Install required packages
+    apt:
+      name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+      state: latest
+
+  - name: Install Docker Compose
+    apt:
+      name: docker-compose
+      state: latest
+
+  - name: Copy todo app
+    copy:
+      src: /mnt/c/Users/Darius/Desktop/bosch/getting-started
+      dest: /opt/todo_app
+
+  - name: Start todo app
+    command: sudo docker-compose up
+    args:
+      chdir: /opt/todo_app/getting-started/app
