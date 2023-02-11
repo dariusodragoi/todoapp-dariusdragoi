@@ -1,6 +1,6 @@
 # Deployment of Todo App using Ansible
 
-This repository contains the necessary files to deploy a Todo app using Ansible. 
+This repository contains the necessary files to deploy a todo app using Ansible. 
 
 ## Prerequisites
 
